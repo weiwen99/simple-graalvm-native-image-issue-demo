@@ -6,7 +6,7 @@ import java.nio.charset.StandardCharsets
 import sys.process.*
 
 @main def main(args: String*): Unit =
-  println("中文文件名测试!")
+  println("中文文件名测试!") // console output works fine
   "mkdir -pv /tmp/xyz".!
   "touch /tmp/xyz/normal.txt".!
   // the chinese file name will become ?????????
