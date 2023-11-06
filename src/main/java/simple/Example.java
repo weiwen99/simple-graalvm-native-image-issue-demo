@@ -3,6 +3,11 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
+/**
+ * this will also produce the issue.
+ * run and check:
+ * ~/projects/simple-graalvm-native-image-issue-demo/src/main/java/simple (main*?) $ javac Example.java && native-image Example && rm -fr /tmp/xyz && ./example && tree /tmp/xyz
+ */
 public class Example {
     public static void main(String[] args) throws IOException {
         String dir = "/tmp/xyz";
