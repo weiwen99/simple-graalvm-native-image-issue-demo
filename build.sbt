@@ -9,9 +9,15 @@ lazy val root = (project in file("."))
   .enablePlugins(JavaAppPackaging)
   .enablePlugins(GraalVMNativeImagePlugin)
   .settings(
-    GraalVMNativeImage / mainClass := Some("simple.main")
-  )
-  .settings(
+    scalacOptions ++= Seq(
+      "-deprecation",
+      "-encoding",
+      "UTF-8", // no effects to the issue
+      "-feature",
+      "-unchecked",
+      "-Vtype-differs" // no effects to the issue
+    ),
+    GraalVMNativeImage / mainClass := Some("simple.main"),
     graalVMNativeImageOptions ++= Seq(
       "--verbose",
       "--static",
