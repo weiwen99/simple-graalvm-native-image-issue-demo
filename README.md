@@ -29,8 +29,30 @@ something_wrong_?????????????.txt
 我可以吞下玻璃而不伤害身体
 ```
 
-### Build configs (contains the graalvm native image build parameters)
+But pure Java runs OK:
 ```
+~/projects/simple-graalvm-native-image-issue-demo (main) $ sbt stage
+
+~/projects/simple-graalvm-native-image-issue-demo (main) $ rm -fr /tmp/xyz
+
+~/projects/simple-graalvm-native-image-issue-demo (main) $ ./target/universal/stage/bin/simple-graalvm-native-image-issue-demo
+中文文件名测试!
+java生成的文件名.conf
+normal.txt
+something_wrong_我可以吞下玻璃而不伤害身体.txt
+
+~/projects/simple-graalvm-native-image-issue-demo (main*) $ tree /tmp/xyz
+/tmp/xyz
+├── java生成的文件名.conf
+├── normal.txt
+└── something_wrong_我可以吞下玻璃而不伤害身体.txt
+
+1 directory, 3 files
+```
+
+### Build outputs (contains the graalvm native image build parameters)
+```
+~/projects/simple-graalvm-native-image-issue-demo (main*) $ sbt graalvm-native-image:packageBin
 [info] welcome to sbt 1.9.7 (N/A Java 19.0.2)
 [info] loading global plugins from /home/weiwen/.sbt/1.0/plugins
 [info] loading settings for project simple-graalvm-native-image-issue-demo-build from plugins.sbt ...
