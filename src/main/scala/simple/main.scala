@@ -9,6 +9,7 @@ import sys.process.*
   println("中文文件名测试!")
   "mkdir -pv /tmp/xyz".!
   "touch /tmp/xyz/normal.txt".!
+  // the chinese file name will become ?????????
   "touch /tmp/xyz/something_wrong_我可以吞下玻璃而不伤害身体.txt".!
   "mkdir -pv /tmp/wrong_dir哈哈".!
   // write by java, the chinese file name will become ?????????
@@ -17,5 +18,4 @@ import sys.process.*
   // the chinese content is correct
   outputStream.write("我可以吞下玻璃而不伤害身体\n".getBytes(StandardCharsets.UTF_8))
   outputStream.close()
-  // but
   println("ls /tmp/xyz".!!)
