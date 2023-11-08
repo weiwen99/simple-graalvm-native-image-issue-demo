@@ -5,9 +5,9 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 /**
- * this will also produce the issue.
  * run and check:
- * ~ $ javac Example.java && native-image Example && rm -fr /tmp/xyz && ./example && tree /tmp/xyz
+ * ~ $ javac Example.java && native-image Example && rm -fr /tmp/xyz && ./example && ls -l /tmp/xyz
+ * will be OK when use Graalvm CE 19.0.2 but 21.0.1 will producs non-ASCII character name files as ?????.txt
  */
 public class Example {
 
