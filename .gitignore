@@ -40,3 +40,6 @@ project/plugins/project/
 .vscode
 .metals
 metals.sbt
+
+src/main/java/simple/example
+

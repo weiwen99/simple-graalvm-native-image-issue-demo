@@ -7,15 +7,26 @@ import java.nio.file.Paths;
 /**
  * this will also produce the issue.
  * run and check:
- * ~/projects/simple-graalvm-native-image-issue-demo/src/main/java/simple (main*?) $ javac Example.java && native-image Example && rm -fr /tmp/xyz && ./example && tree /tmp/xyz
+ * ~ $ javac Example.java && native-image Example && rm -fr /tmp/xyz && ./example && tree /tmp/xyz
  */
 public class Example {
+
+    private static String dir = "/tmp/xyz";
+
     public static void main(String[] args) throws IOException {
-        String dir = "/tmp/xyz";
+        // Chinese
+        writeFile("我可以吞下玻璃而不伤害身体.txt");
+        // Japanese
+        writeFile("正規表現は非常に役に立つツールテキストを操作することです");
+        // Korean
+        writeFile("정규 표현식은 매우 유용한 도구 텍스트를 조작하는 것입니다");
+    }
+
+    private static void writeFile(String name) throws IOException {
         Files.createDirectories(Paths.get(dir));
-        String fileName = dir + "/" + "我可以吞下玻璃而不伤害身体.txt";
+        String fileName = dir + "/" + name + ".txt";
         FileOutputStream outputStream = new FileOutputStream(fileName);
-        outputStream.write("玻璃".getBytes(StandardCharsets.UTF_8));
+        outputStream.write(name.getBytes(StandardCharsets.UTF_8));
         outputStream.close();
     }
 }

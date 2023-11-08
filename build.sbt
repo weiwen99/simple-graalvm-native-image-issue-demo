@@ -15,17 +15,16 @@ lazy val root = (project in file("."))
       "UTF-8", // no effects to the issue
       "-feature",
       "-unchecked",
-      "-Vtype-differs" // no effects to the issue
     ),
     GraalVMNativeImage / mainClass := Some("simple.main"),
     graalVMNativeImageOptions ++= Seq(
-      "--verbose",
-      "--static",
+      // "--verbose",
+      "--silent",
+      // "--static",
       // "-H:+StaticExecutableWithDynamicLibC",
       "-H:+UnlockExperimentalVMOptions",
       "--no-fallback",
       // "-march=native",
-      "-Dfile.encoding=UTF8",
       "-J-Dfile.encoding=UTF8",
       "-J-Dsun.stdout.encoding=UTF-8"
     )
